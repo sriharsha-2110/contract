@@ -1,0 +1,80 @@
+/* General container styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Select dropdown styling */
+select {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Styling for the product display section */
+.product-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Styling for individual product cards */
+.product {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect on product cards */
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Product image styling */
+.product img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product name styling */
+.product h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Product description styling */
+.product p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Button styling for showing uploaded items */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer - Select Category</title>
+    <link rel="stylesheet" href="styl.css">
+    <script src="product.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Select a Category</h1>
+        
+        <select id="categorySelect" onchange="displayItems()">
+            <option value="">Select a category</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Grains">Grains</option>
+        </select>
+
+        <div id="productDisplay" class="product-display"></div>
+    </div>
+
+</body>
+</html>

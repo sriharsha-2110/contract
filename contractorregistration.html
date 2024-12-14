@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <style>
+  
+        body {
+          
+          background-image: url('https://teksun.com/wp-content/uploads/2021/07/How-the-agri-tech-industry-is-evolving-towards-smart-agriculture-Primary-image.jpg');
+          background-repeat: no-repeat;
+          background-size:100% 100%;
+          background-attachment: fixed;
+         
+        
+        }
+      
+        </style>
+      
+    <div class="form-container">
+        <h2>CREATE CONTRACTER ACCOUNT</h2>
+        <form id="registrationForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" required min="18" name="age" required>
+
+            <label for="Phone">Mobile number</label>
+            <input type="tel" id="phone" required maxlength="10" pattern="[0-9]{10}"name="phone" required>
+
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required maxlength="6" pattern="[0-9a-zA-Z]{10}" name="password" required><br><br>
+    
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword"  required maxlength="6" pattern="[0-9a-zA-Z]{10}" name="confirmPassword" required><br><br>
+    
+            <button class="submit-btn" type="button" onclick="validateContractorForm()">SUBMIT</button>
+        </form>
+    </div>
+   
+
+    <script src="data.js"></script>
+</body>
+</html>

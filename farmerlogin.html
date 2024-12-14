@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <style>
+    body {
+      background-image: url('https://media.licdn.com/dms/image/v2/D4E12AQGN2apEkIKD_w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1708716242256?e=2147483647&v=beta&t=sBgvGLviPUt46umB69stjSRKZUMglBrMp1betKa4MOc');
+      background-repeat: no-repeat;
+      background-size:100% 100%;
+      background-attachment: fixed;
+    }
+    h1 {
+      position: fixed;
+      font-size: 40px;
+      top: 2px;
+      left: 60px;
+      color: #0b0b0b;
+    }
+  </style>
+
+  <h1>Farmer Login</h1>
+  <div class="form-container">
+    <form action="/farmer_login" method="POST" onsubmit="return handleLogin(event)">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="password" name="password" maxlength="6" placeholder="Password" required>
+      <button type="submit" onclick= "window.location.href='farmer.html'">Login</button>
+    </form>
+
+    <!-- Alert Message for Wrong Password -->
+    <div id="alertMessage" style="color:red; display:none;">
+      Wrong Password. Please try again.
+    </div>
+  </div>
+
+  <script>
+    let failedAttempts = 0;
+    const maxAttempts = 3;
+
+    function handleLogin(event) {
+        event.preventDefault(); // Prevent the form from submitting directly
+
+        const name = event.target.name.value;
+        const password = event.target.password.value;
+
+        if (failedAttempts >= maxAttempts) {
+            alert('Maximum login attempts reached. Please try again later.');
+            return;
+        }
+
+        const formData = {
+            name: name,
+            password: password
+        };
+
+        fetch('/farmer_login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = 'farmerDetails.html'; // Redirect to dashboard
+            } else {
+                response.json().then(data => {
+                    showError(data.message || 'Error occurred');
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showError('An error occurred. Please try again.');
+        });
+    }
+
+    function showError(message) {
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.textContent = message;
+        alertMessage.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
